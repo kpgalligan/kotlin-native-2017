@@ -13,6 +13,9 @@
 		2CB540471F56C2C4006EE521 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CB540451F56C2C4006EE521 /* Main.storyboard */; };
 		2CB540491F56C2C4006EE521 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CB540481F56C2C4006EE521 /* Assets.xcassets */; };
 		2CB5404C1F56C2C4006EE521 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CB5404A1F56C2C4006EE521 /* LaunchScreen.storyboard */; };
+		631F49A21FA03AAD006ECCEF /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 631F49A11FA03AAD006ECCEF /* ScheduleViewController.m */; };
+		639CE4FA1F9FC77B00CF59F5 /* prefixes.properties in Resources */ = {isa = PBXBuildFile; fileRef = 639CE4F91F9FC77B00CF59F5 /* prefixes.properties */; };
+		639CE51B1FA0207800CF59F5 /* dataseed.json in Resources */ = {isa = PBXBuildFile; fileRef = 639CE51A1FA0207800CF59F5 /* dataseed.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,10 @@
 		2CB540481F56C2C4006EE521 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CB5404B1F56C2C4006EE521 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CB5404D1F56C2C4006EE521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		631F49A01FA03AAD006ECCEF /* ScheduleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
+		631F49A11FA03AAD006ECCEF /* ScheduleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
+		639CE4F91F9FC77B00CF59F5 /* prefixes.properties */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prefixes.properties; sourceTree = "<group>"; };
+		639CE51A1FA0207800CF59F5 /* dataseed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dataseed.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +66,8 @@
 		2CB5403B1F56C2C4006EE521 /* konan */ = {
 			isa = PBXGroup;
 			children = (
+				639CE51A1FA0207800CF59F5 /* dataseed.json */,
+				639CE4F91F9FC77B00CF59F5 /* prefixes.properties */,
 				2CB5403F1F56C2C4006EE521 /* AppDelegate.h */,
 				2CB540401F56C2C4006EE521 /* AppDelegate.m */,
 				2CB540421F56C2C4006EE521 /* ViewController.h */,
@@ -68,6 +77,8 @@
 				2CB5404A1F56C2C4006EE521 /* LaunchScreen.storyboard */,
 				2CB5404D1F56C2C4006EE521 /* Info.plist */,
 				2CB5403C1F56C2C4006EE521 /* Supporting Files */,
+				631F49A01FA03AAD006ECCEF /* ScheduleViewController.h */,
+				631F49A11FA03AAD006ECCEF /* ScheduleViewController.m */,
 			);
 			path = konan;
 			sourceTree = "<group>";
@@ -121,6 +132,7 @@
 				TargetAttributes = {
 					2CB540381F56C2C4006EE521 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 2UER9BPG44;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -148,9 +160,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				639CE4FA1F9FC77B00CF59F5 /* prefixes.properties in Resources */,
 				2CB5404C1F56C2C4006EE521 /* LaunchScreen.storyboard in Resources */,
 				2CB540491F56C2C4006EE521 /* Assets.xcassets in Resources */,
 				2CB540471F56C2C4006EE521 /* Main.storyboard in Resources */,
+				639CE51B1FA0207800CF59F5 /* dataseed.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +223,7 @@
 				2CB540441F56C2C4006EE521 /* ViewController.m in Sources */,
 				2CB540411F56C2C4006EE521 /* AppDelegate.m in Sources */,
 				2CB5403E1F56C2C4006EE521 /* main.m in Sources */,
+				631F49A21FA03AAD006ECCEF /* ScheduleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +345,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2UER9BPG44;
 				INFOPLIST_FILE = konan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.jetbrains.konan;
@@ -341,6 +357,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2UER9BPG44;
 				INFOPLIST_FILE = konan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.jetbrains.konan;

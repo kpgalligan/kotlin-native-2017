@@ -12,14 +12,60 @@ fun main(args: Array<String>) {
     }
 }
 
-class AppDelegate : UIResponder(), UIApplicationDelegateProtocol {
+class KotlinLocalLoadDataSeed: DKOTKotlinLoadDataSeed(){
+    override fun dataSeed(): String {
+        return DKOTKotlinHelper.loadResrouceSeedWithNSString("dataseed.json")!!
+    }
+
+}
+
+class AppDelegate : UIResponder(), UIApplicationDelegateProtocol{
     companion object : UIResponderMeta(), UIApplicationDelegateProtocolMeta {}
 
     override fun init() = initBy(AppDelegate())
 
     private var _window: UIWindow? = null
+
     override fun window() = _window
     override fun setWindow(window: UIWindow?) { _window = window }
+
+    override fun application(application: UIApplication, willFinishLaunchingWithOptions: NSDictionary?): Boolean{
+        DopplRuntime.start()
+
+        val platformClient = DCIosPlatformClient(DKOTKotlinIosFirebase())
+        val application = AndroidContentIOSContext()
+
+        val appComponent = DDAGDaggerAppComponent.builder()!!
+                .appModuleWithDDAGAppModule(DDAGAppModule(application))!!
+                .networkModuleWithDDAGNetworkModule(DDAGNetworkModule())!!
+                .build()
+
+        DVMAppManager.createWithAndroidContentContext(application, platformClient, appComponent)
+        DVMAppManager.getInstance()!!.seedWithDVMLoadDataSeed(KotlinLocalLoadDataSeed());
+
+        return true
+    }
+
+
+    /*override fun logFirebaseNative(with s: String!) {
+
+    }
+
+    override fun logPushNative(with s: String!) {
+
+    }
+
+    override fun logEvent(with name: String!, withNSStringArray params: IOSObjectArray!) {
+
+    }*/
+}
+
+class ScheduleDataViewModelHost: DKOTKotlinScheduleDataViewModel(){
+
+    override fun loadCallbackWithDVMDayScheduleArray(daySchedules: IOSObjectArray){
+        println("LEMMY: loadCallbackWithDVMDayScheduleArray " + daySchedules.length())
+    }
+
 }
 
 @ExportObjCClass
@@ -39,6 +85,13 @@ class ViewController : UIViewController {
 
     @ObjCAction
     fun buttonPressed() {
-        label.text = "Konan says: 'Hello, ${textField.text}!'"
+
+        val viewModel = DVMScheduleDataViewModel.forIos()!!
+        val host = ScheduleDataViewModelHost()
+        viewModel.wireWithDVMScheduleDataViewModel_Host(host, true)
+//        viewModel.wireWithDVMSponsorsViewModel_Host(host, 0)
+//          val testThings = CoTouchlabSmalldoppltestSharedTestThings()
+//        label.text = testThings.hello()
+//        label.text = "asdf"
     }
 }

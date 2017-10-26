@@ -3,6 +3,7 @@ apply plugin: 'konan'
 konanInterop {
     objc {
         target "iphone"
+        includeDirs '/Users/kgalligan/Library/Developer/Xcode/DerivedData/kotlinNativeLib-hkiqnvidczwpvmficmykctcpjjza/Build/Products/Debug-iphoneos/include', '/Users/kgalligan/devel/j2objc/dist/include'
     }
 }
 
